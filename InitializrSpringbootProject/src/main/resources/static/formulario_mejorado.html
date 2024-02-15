@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>formulario</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                background-color: #f4f4f4;
+                margin: 0;
+                padding: 0;
+            }
+            form {
+                background-color: #fff;
+                max-width: 600px;
+                margin: 20px auto;
+                padding: 20px;
+                border-radius: 8px;
+                box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            }
+            label {
+                display: block;
+                margin-bottom: 8px;
+                color: #333;
+            }
+            input[type="text"],
+            input[type="email"],
+            input[type="search"],
+            input[type="tel"],
+            input[type="time"],
+            input[type="url"],
+            input[type="week"],
+            input[type="color"],
+            input[type="date"],
+            input[type="datetime-local"],
+            input[type="file"],
+            input[type="month"],
+            input[type="number"],
+            input[type="password"] {
+                width: calc(100% - 22px);
+                padding: 10px;
+                margin-bottom: 10px;
+                border: 1px solid #ccc;
+                border-radius: 5px;
+                box-sizing: border-box;
+            }
+            input[type="submit"],
+            input[type="reset"],
+            input[type="button"] {
+                background-color: #007bff;
+                color: #fff;
+                padding: 10px 20px;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+            }
+            input[type="submit"]:hover,
+            input[type="reset"]:hover,
+            input[type="button"]:hover {
+                background-color: #0056b3;
+            }
+        </style>
+    </head>
+    <body>
+        <form action="confirmacion.jsp">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" placeholder="Correo electrónico">
+            <label for="search">Búsqueda:</label>
+            <input type="search" id="search" name="search">
+            <label for="tel">Teléfono:</label>
+            <input type="tel" id="tel" name="tel">
+            <label for="text">Texto:</label>
+            <input type="text" id="text" name="text">
+            <label for="time">Tiempo:</label>
+            <input type="time" id="time" name="time">
+            <label for="url">URL:</label>
+            <input type="url" id="url" name="url">
+            <label for="week">Semana:</label>
+            <input type="week" id="week" name="week">
+            <input type="button" value="Botón">
+            <label for="checkbox">Checkbox:</label>
+            <input type="checkbox" id="checkbox" name="checkbox">
+            <label for="color">Color:</label>
+            <input type="color" id="color" name="color">
+            <label for="date">Fecha:</label>
+            <input type="date" id="date" name="date">
+            <label for="datetime-local">Fecha y hora:</label>
+            <input type="datetime-local" id="datetime-local" name="datetime-local">
+            <label for="email2">Email 2:</label>
+            <input type="email" id="email2" name="email2" placeholder="Correo electrónico 2">
+            <label for="file">Archivo:</label>
+            <input type="file" id="file" name="file">
+            <label for="hidden">Campo oculto:</label>
+            <input type="hidden" id="hidden" name="hidden" value="valor_oculto">
+            <label for="image">Imagen:</label>
+            <input type="image" id="image" src="https://www.dbtechnologies.com/images/299/7134/180x180/cover/q-100/align-4/VIO-X206-front-no-grille.png" alt="image">
+            <label for="month">Mes:</label>
+            <input type="month" id="month" name="month">
+            <label for="number">Número:</label>
+            <input type="number" id="number" name="number">
+            <label for="password">Contraseña:</label>
+            <input type="password" id="password" name="password">
+            <label for="radio">Radio:</label>
+            <input type="radio" id="radio" name="radio">
+            <label for="range">Rango:</label>
+            <input type="range" id="range" name="range">
+            <input type="reset" value="Restablecer">
+            <input type="submit" value="Enviar">
+        </form>
+    </body>
+</html>
