@@ -8,9 +8,9 @@ import lombok.Data;
 @Entity
 @Table(name="categoria")
 
-public class Categoria implements Serializable {
+public class categoria implements Serializable {
     
-    private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID= 1L;
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -20,11 +20,13 @@ public class Categoria implements Serializable {
     private String rutaImagen;
     private boolean activo;
 
-    public Categoria() {
+    public categoria() {
     }
 
-    public Categoria(String categoria, boolean activo) {
+    public categoria(String categoria, boolean activo) {
         this.descripcion = categoria;
         this.activo = activo;
     }
+            
+    
 }
