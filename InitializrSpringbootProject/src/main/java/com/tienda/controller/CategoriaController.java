@@ -1,7 +1,7 @@
 package com.tienda.controller;
 
-import com.tienda.domain.categoria;
-import com.tienda.service.categoriaService;
+import com.tienda.domain.Categoria;
+import com.tienda.service.CategoriaService;
 import com.tienda.service.impl.FirebaseStorageServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -14,47 +14,52 @@ import org.springframework.web.multipart.MultipartFile;
 
 @Controller
 @RequestMapping("/categoria")
-public class categoriaController {
+public class CategoriaController {
+  
     @Autowired
-    private categoriaService categoriaService;
-
+    private CategoriaService categoriaService;
+    
     @GetMapping("/listado")
-    public String inicio(Model model) {
+    private String listado(Model model) {
         var categorias = categoriaService.getCategorias(false);
         model.addAttribute("categorias", categorias);
-        model.addAttribute("totalCategorias", categorias.size());
+        model.addAttribute("totalCategorias",categorias.size());
         return "/categoria/listado";
     }
     
-    @GetMapping("/nuevo")    
-    public String categoriaNuevo(categoria categoria){
+     @GetMapping("/nuevo")
+    public String categoriaNuevo(Categoria categoria) {
         return "/categoria/modifica";
     }
-    
+
     @Autowired
     private FirebaseStorageServiceImpl firebaseStorageService;
     
     @PostMapping("/guardar")
-    public String categoriaGuardar(categoria categoria,
-            @RequestParam("imagenFile") MultipartFile imagenFile) {
+    public String categoriaGuardar(Categoria categoria,
+            @RequestParam("imagenFile") MultipartFile imagenFile) {        
         if (!imagenFile.isEmpty()) {
             categoriaService.save(categoria);
-            categoria.setRutaImagen(firebaseStorageService.cargaImagen(imagenFile, "categoria", categoria.getIdCategoria()));
+            categoria.setRutaImagen(
+                    firebaseStorageService.cargaImagen(
+                            imagenFile, 
+                            "categoria", 
+                            categoria.getIdCategoria()));
         }
         categoriaService.save(categoria);
         return "redirect:/categoria/listado";
     }
-    
-    @GetMapping("/eliminar/idCategoria")    
-    public String categoriaEliminar(categoria categoria){
+
+    @GetMapping("/eliminar/{idCategoria}")
+    public String categoriaEliminar(Categoria categoria) {
         categoriaService.delete(categoria);
         return "redirect:/categoria/listado";
     }
-    
-    @GetMapping("/modificar/idCategoria")    
-    public String categoriaModificar(categoria categoria, Model model){
+
+    @GetMapping("/modificar/{idCategoria}")
+    public String categoriaModificar(Categoria categoria, Model model) {
         categoria = categoriaService.getCategoria(categoria);
         model.addAttribute("categoria", categoria);
-        return "redirect:/categoria/modifica";
-    }
+        return "/categoria/modifica";
+    }   
 }

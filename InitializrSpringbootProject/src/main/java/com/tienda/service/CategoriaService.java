@@ -1,19 +1,19 @@
 package com.tienda.service;
 
-import com.tienda.domain.categoria;
+import com.tienda.domain.Categoria;
 import java.util.List;
 
-public interface categoriaService {
+public interface CategoriaService {
 
-    public List<categoria> getCategorias(boolean activo);
+    public List<Categoria> getCategorias(boolean activo);
 
     // Se obtiene un Categoria, a partir del id de un categoria
-    public categoria getCategoria(categoria categoria);
+    public Categoria getCategoria(Categoria categoria);
     
     // Se inserta un nuevo categoria si el id del categoria esta vacío
     // Se actualiza un categoria si el id del categoria NO esta vacío
-    public void save(categoria categoria);
+    public void save(Categoria categoria);
     
     // Se elimina el categoria que tiene el id pasado por parámetro
-    public void delete(categoria categoria);
+    public void delete(Categoria categoria);
 }

@@ -1,8 +1,8 @@
 package com.tienda.controller;
 
-import com.tienda.domain.producto;
-import com.tienda.service.categoriaService;
-import com.tienda.service.productoService;
+import com.tienda.domain.Producto;
+import com.tienda.service.CategoriaService;
+import com.tienda.service.ProductoService;
 import com.tienda.service.impl.FirebaseStorageServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -15,12 +15,12 @@ import org.springframework.web.multipart.MultipartFile;
 
 @Controller
 @RequestMapping("/producto")
-public class productoController {
+public class ProductoController {
   
     @Autowired
-    private productoService productoService;
+    private ProductoService productoService;
     @Autowired
-    private categoriaService categoriaService;
+    private CategoriaService categoriaService;
     
     @GetMapping("/listado")
     private String listado(Model model) {
@@ -35,7 +35,7 @@ public class productoController {
     }
     
      @GetMapping("/nuevo")
-    public String productoNuevo(producto producto) {
+    public String productoNuevo(Producto producto) {
         return "/producto/modifica";
     }
 
@@ -43,7 +43,7 @@ public class productoController {
     private FirebaseStorageServiceImpl firebaseStorageService;
     
     @PostMapping("/guardar")
-    public String productoGuardar(producto producto,
+    public String productoGuardar(Producto producto,
             @RequestParam("imagenFile") MultipartFile imagenFile) {        
         if (!imagenFile.isEmpty()) {
             productoService.save(producto);
@@ -58,13 +58,13 @@ public class productoController {
     }
 
     @GetMapping("/eliminar/{idProducto}")
-    public String productoEliminar(producto producto) {
+    public String productoEliminar(Producto producto) {
         productoService.delete(producto);
         return "redirect:/producto/listado";
     }
 
     @GetMapping("/modificar/{idProducto}")
-    public String productoModificar(producto producto, Model model) {
+    public String productoModificar(Producto producto, Model model) {
         producto = productoService.getProducto(producto);
         model.addAttribute("producto", producto);
         

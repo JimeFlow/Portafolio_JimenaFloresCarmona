@@ -7,7 +7,8 @@ import lombok.Data;
 @Data
 @Entity
 @Table(name="producto")
-public class producto implements Serializable {
+
+public class Producto implements Serializable {
     private static final long serialVersionUID = 1L;
     
     @Id
@@ -24,13 +25,13 @@ public class producto implements Serializable {
 
     @ManyToOne
     @JoinColumn(name="id_categoria")
-    categoria categoria;
+    Categoria categoria;
 
 
-    public producto() {
+    public Producto() {
     }
 
-    public producto(String descripcion, boolean activo) {
+    public Producto(String descripcion, boolean activo) {
         this.descripcion = descripcion;
         this.activo = activo;
     }
