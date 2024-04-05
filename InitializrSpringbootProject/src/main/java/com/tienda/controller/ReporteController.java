@@ -52,6 +52,7 @@ public class ReporteController {
             @RequestParam String fechaInicio,
             @RequestParam String fechaFin,
             @RequestParam String tipo) throws IOException {
+        
         //Esto espera definir los parametros que se pasan al reporte cliente
         Map<String, Object> parametros = new HashMap();
         parametros.put("fechaInicio", fechaInicio);

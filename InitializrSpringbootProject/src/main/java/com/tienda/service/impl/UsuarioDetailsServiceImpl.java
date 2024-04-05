@@ -16,8 +16,10 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 
 @Service("userDetailsService")
 public class UsuarioDetailsServiceImpl implements UsuarioDetailsService, UserDetailsService{
+    
     @Autowired
     private UsuarioDao usuarioDao;
+    
     @Autowired
     private HttpSession session;
     

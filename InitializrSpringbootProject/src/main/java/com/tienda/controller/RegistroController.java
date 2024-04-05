@@ -66,4 +66,5 @@ public class RegistroController {
         model = registroService.recordarUsuario(model, usuario);
         return "/registro/salida";
     }
+    
 }

@@ -80,7 +80,7 @@ public class ProjectConfig implements WebMvcConfigurer {
                         "/reportes/**", "/continue/**"
                 ).hasRole("ADMIN")
                 .requestMatchers(
-                        "/producto/listado?continue",
+                        "/producto/listado/continue",
                         "/producto/listado",
                         "/categoria/listado",
                         "/usuario/listado"

@@ -18,10 +18,13 @@ public class RegistroServiceImpl implements RegistroService {
 
     @Autowired
     private CorreoService correoService;
+    
     @Autowired
     private UsuarioService usuarioService;
+    
     @Autowired
     private MessageSource messageSource;  //creado en semana 4...
+    
     @Autowired
     private FirebaseStorageServiceImpl firebaseStorageService;
 
@@ -157,4 +160,5 @@ public class RegistroServiceImpl implements RegistroService {
     private void enviaCorreoRecordar(Usuario usuario2, String clave) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
+    
 }
