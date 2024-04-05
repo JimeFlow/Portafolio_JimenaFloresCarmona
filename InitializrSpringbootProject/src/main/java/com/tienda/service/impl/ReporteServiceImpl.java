@@ -7,7 +7,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
-import java.sql.SQLException;
+//import java.sql.SQLException;
 import java.util.Map;
 import net.sf.jasperreports.engine.JRException;
 import net.sf.jasperreports.engine.JasperExportManager;
@@ -112,7 +112,7 @@ public class ReporteServiceImpl implements ReporteService{
                     .body(
                             new InputStreamResource(new ByteArrayInputStream(data)));
             
-        } catch (SQLException | JRException e) {
+        } catch (JRException e) { //SQLException | 
             e.printStackTrace();
             return null;
         }
